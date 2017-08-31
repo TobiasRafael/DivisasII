@@ -1,0 +1,2 @@
+C:\Users\tobia\Source\Repos\DivisasII\DivisasII\DivisasII.UWP\DivisasII.UWP.csproj;x86
+C:\Users\tobia\Source\Repos\DivisasII\DivisasII\DivisasII\DivisasII.csproj;neutral

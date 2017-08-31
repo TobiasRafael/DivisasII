@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:DivisasII"
+             xmlns:control="clr-namespace:DivisasII.Controls"
+             x:Class="DivisasII.MainPage"
+             Title="Foreign Exchange"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}">
+
+    <StackLayout Padding="8">
+        <Label
+      Text="Amount:">
+        </Label>
+        <Entry
+      Text="{Binding Amount, Mode=TwoWay}"
+      Keyboard="Numeric"
+      Placeholder="Enter an amount...">
+        </Entry>
+
+        <Label
+      Text="Source currency:">
+        </Label>
+
+        <control:BindablePicker
+               Title="Select source currency..."
+               DisplayMemberPath="Code"
+               SelectedValuePath="TaxRate"
+               ItemsSource="{Binding Rates}"
+               SelectedValue ="{Binding Path=SourceRate, Mode=TwoWay}"
+               HorizontalOptions="FillAndExpand"
+               VerticalOptions="Center">
+        </control:BindablePicker>
+
+        <Label
+      Text="Target currency:">
+        </Label>
+
+        <control:BindablePicker
+               Title="Select target currency..."
+               DisplayMemberPath="Code"
+               SelectedValuePath="TaxRate"
+               ItemsSource="{Binding Rates}"
+               SelectedValue ="{Binding Path=TargetRate, Mode=TwoWay}"
+               HorizontalOptions="FillAndExpand"
+               VerticalOptions="Center">
+        </control:BindablePicker>
+
+        <Button
+      Command="{Binding ConvertMoneyCommand}"
+      IsEnabled="{Binding IsEnabled, Mode=TwoWay}"
+      Text="Convert"
+      BackgroundColor="Navy"
+      TextColor="White"
+      HeightRequest="40"
+      BorderRadius="20">
+        </Button>
+
+        <ActivityIndicator
+      IsRunning="{Binding IsRunning, Mode=TwoWay}">
+        </ActivityIndicator>
+
+        <Label
+      Text="{Binding Message, Mode=TwoWay}"
+      BackgroundColor="Silver"
+      TextColor="Purple"
+      FontAttributes="Bold"
+      HorizontalTextAlignment="Center"
+      VerticalTextAlignment="Center"
+      HorizontalOptions="FillAndExpand"
+      VerticalOptions="FillAndExpand">
+        </Label>
+    </StackLayout>
+
+</ContentPage>
